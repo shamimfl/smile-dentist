@@ -5,16 +5,25 @@ import auth from '../../Firebase.init';
 import logo from '../../img/logo.png'
 import Loading from '../Loading/Loading';
 
+import {signOut} from 'firebase/auth'
+
 
 
 
 const Header = () => {
     const [open, setOpen] = useState(false);
     const [user , loading, error] = useAuthState(auth)
+    // const [signOut, sloading, serror] = useSignOut(auth);
 
     if(loading){
         return <Loading></Loading>
     }
+
+
+    const Logout =()=>{
+        signOut(auth)
+    }
+
 
    
     return (
@@ -30,13 +39,15 @@ const Header = () => {
                 </div>
             </div>
             <ul className={`md:flex justify-end items-center absolute gap-5 font-bold p-5 md:static z-10 bg-base-100 w-full duration-500 ease-in ${open ? 'top-24': 'top-[-1120px]'}`}>
-                <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" />
+                {
+                    user ? <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" /> : ''
+                }
                 <Link className='text-teal-600 block ' to='/service'>Service</Link>
                 {
-                    user ? '' : <Link className='text-teal-600 block ' to='/review'>My Review</Link>
-                }
+                    user ? <Link className='text-teal-600 block ' to='/review'>My Review</Link> : ''
+                }  
                 {
-                    user ? "" : <Link className='text-teal-600 block ' to='/Addservice'>Add service</Link> 
+                    user ?  <Link className='text-teal-600 block ' to='/Addservice'>Add service</Link>  : ""
                 }
                 <Link className='text-teal-600 block ' to='/portfolio'>Portfolio</Link>
                 <Link className='text-teal-600 block ' to='/blogs'>Blogs</Link>
@@ -44,7 +55,7 @@ const Header = () => {
                     user ? "" : <Link className='text-teal-600 block ' to='/Register'>Register</Link>
                 }
                 {
-                    user ? <button className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='text-teal-600 block ' to='/login'>Login</Link>
+                    user ? <button onClick={Logout} className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='text-teal-600 block ' to='/login'>Login</Link>
                 }
 
             </ul>
