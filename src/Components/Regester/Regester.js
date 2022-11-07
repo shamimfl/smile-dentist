@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 import EmailIcon from '@mui/icons-material/Email';
@@ -21,13 +21,13 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     const handleGoogleLogin = () => {
         signInWithGoogle()
     }
 
-    const handleCreateUser =(e)=>{
+    const handleCreateUser = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
@@ -35,14 +35,15 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password)
     }
 
-    if(user || guser){
+    if (user || guser) {
         navigate('/')
     }
 
-    if(loading || gloading){
+    if (loading || gloading) {
         return <Loading></Loading>
     }
 
+   
     return (
         <div className='p-5'>
             <div className='lg:w-2/5 rounded-md mx-auto  mt-5 bg-cus-login p-5 text-center shadow relative'>
@@ -83,9 +84,10 @@ const Register = () => {
                     <button onClick={handleGoogleLogin} className="w-full btn border-0 bg-teal-500 hover:bg-teal-500"><GoogleIcon /></button>
                 </div>
                 {/* error  */}
-                <div className='h-10  bg-red-400  absolute top-2 rounded shadow flex items-center px-5 text-white gap-5'>
-                    <WarningAmberIcon />
-                    <p>Error ?</p>
+
+                <div className='absolute top-2 bg-white rounded shadow flex items-center px-5 text-red-500 gap-5'>
+                   {error? error.message : ''}
+                   {gerror? gerror.message : ''}
                 </div>
             </div>
 

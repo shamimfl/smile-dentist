@@ -83,9 +83,9 @@ const LogIn = () => {
                 </div>
                 {/* <Link className='text-center  block mt-5'><button className='font-bold p-1 btn-wide  rounded-full shadow text-teal-700   border-teal-700 border-2  uppercase'>Sing Up</button></Link> */}
                 {/* error  */}
-                <div className='h-10  bg-red-400  absolute top-2 rounded shadow flex items-center px-5 text-white gap-5'>
-                <WarningAmberIcon/>
-                <p>Error ?</p>
+                <div className='absolute top-2 bg-white rounded shadow flex items-center px-5 text-red-500 gap-5'>
+                   {error? error.message : ''}
+                   {gerror? gerror.message : ''}
                 </div>
             </div>
                 
