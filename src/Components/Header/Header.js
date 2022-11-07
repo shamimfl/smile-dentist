@@ -17,13 +17,13 @@ const Header = () => {
                 </div>
             </div>
             <ul className={`md:flex justify-end items-center absolute gap-5 font-bold p-5 md:static z-10 bg-base-100 w-full duration-500 ease-in ${open ? 'top-24': 'top-[-1120px]'}`}>
-                <Link className='text-teal-600 block' to='/service'>Service</Link>
-                <Link className='text-teal-600 block' to='/review'>My Review</Link>
-                <Link className='text-teal-600 block' to='/Addservice'>Add service</Link>
-                <Link className='text-teal-600 block' to='/login'>Portfolio</Link>
-                <Link className='text-teal-600 block' to='/login'>Blogs</Link>
-                <Link className='text-teal-600 block' to='/Register'>Register</Link>
-                <Link className='text-teal-600 block' to='/login'>Login</Link>
+                <Link className='text-teal-600 block ' to='/service'>Service</Link>
+                <Link className='text-teal-600 block ' to='/review'>My Review</Link>
+                <Link className='text-teal-600 block ' to='/Addservice'>Add service</Link>
+                <Link className='text-teal-600 block ' to='/login'>Portfolio</Link>
+                <Link className='text-teal-600 block ' to='/login'>Blogs</Link>
+                <Link className='text-teal-600 block ' to='/Register'>Register</Link>
+                <Link className='text-teal-600 block ' to='/login'>Login</Link>
                 <button className='btn btn-warning' to='/logout'>Logout</button>
 
             </ul>
