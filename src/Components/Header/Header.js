@@ -42,7 +42,7 @@ const Header = () => {
                 {
                     user ? <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" /> : ''
                 }
-                <Link className='text-teal-600 block ' to='/service'>Service</Link>
+                <Link className='text-teal-600 block ' to='/services'>Services</Link>
                 {
                     user ? <Link className='text-teal-600 block ' to='/review'>My Review</Link> : ''
                 }  
