@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const Addservice = () => {
     // 2. [Home] service = name, image, rating, price, short description(maximum 100 characters),
@@ -24,6 +25,7 @@ const Addservice = () => {
         .then(data=> {
             console.log(data.acknowledged)
             if(data.acknowledged){
+                toast.success('Services Added Successfully')
                 form.reset()
             }
         })
