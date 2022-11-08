@@ -17,7 +17,7 @@ const Details = () => {
 
     return (
         <div className='p-5 lg:px-10'>
-            <div className='md:flex justify-between p-5 gap-20'>
+            <div className='md:flex justify-between  gap-20'>
                 <img className='md:w-2/4 h-96 rounded mt-5' src={details?.img} alt="" />
                 <div className='lg:w-2/4 mt-5'>
                     <h1 className='text-3xl font-bold  text-teal-500'>{details?.name}</h1>
@@ -35,8 +35,8 @@ const Details = () => {
                     </p>
                     <h3 className='mt-5 text-5xl text-teal-500'>$ {details.price}</h3>
                     <div className='flex gap-3 mt-10'>
-                        <button className='btn bg-head mt-5 border-0'>Appointment Now</button>
-                        <Link to='/services' className='btn bg-head mt-5 border-0'>Explore More Services</Link>
+                        <button className='btn  bg-head mt-5 border-0'>Appointment Now</button>
+                        <Link to='/services' className='btn  bg-head mt-5 border-0'>More Services</Link>
                     </div>
                 </div>
             </div>

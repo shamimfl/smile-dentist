@@ -35,7 +35,7 @@ const Register = () => {
     }
 
     if (user || guser) {
-        navigate('/')
+        navigate('/update')
     }
 
     if (loading || gloading) {
@@ -51,12 +51,12 @@ const Register = () => {
 
 
                 <form onSubmit={handleCreateUser}>
-                    <div className='flex items-center bg-transparent  border-2 border-teal-500 rounded-lg overflow-hidden  gap-3'>
+                    {/* <div className='flex items-center bg-transparent  border-2 border-teal-500 rounded-lg overflow-hidden  gap-3'>
                         <div className='bg-teal-500 px-3 py-2'>
                             <Person3Icon className='h-10 text-white w-10' />
                         </div>
                         <input className='w-full h-full bg-transparent focus:outline-none' placeholder='Enter Your name' type="text" name="name" id="" />
-                    </div>
+                    </div> */}
                     <div className='flex items-center bg-transparent mt-3 border-2 border-teal-500 rounded-lg overflow-hidden  gap-3'>
                         <div className='bg-teal-500 px-3 py-2'>
                             <EmailIcon className='h-10 text-white w-10' />
