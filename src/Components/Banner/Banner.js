@@ -11,7 +11,7 @@ const Banner = () => {
                     <p className='text-sm w-3/4 mt-5'>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <button className="btn mt-5">Get start </button>
                 </div>
-                <img className='md:w-2/4 md:h-96 rounded-md mt-5' src="https://img.freepik.com/free-photo/woman-patient-dentist_1303-9355.jpg?w=740&t=st=1667843364~exp=1667843964~hmac=94920dcdff9f2d90b995f656687f5006f59f48c189cb93edaaf0291ab6ac507d" alt="" />
+                <img className='md:2/4 md:h-[30rem] md: rounded-md mt-5' src="https://www.esplanademedicalcentre.com.au/wp-content/uploads/2021/04/ban01_2.png" alt="" />
             </div>
         </div>
     );

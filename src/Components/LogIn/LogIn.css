@@ -3,3 +3,14 @@
     background-repeat: no-repeat;
 
 }
+
+.bg-cus-add {
+    background-color: #ffff;
+    box-shadow: -11px 11px 22px #bebebe, 11px -11px 22px #ffffff;
+}
+
+
+
+input::placeholder {
+    /* color: beige; */
+}

@@ -47,7 +47,7 @@ const Header = () => {
                     user ? <Link className='text-teal-600 block ' to='/review'>My Review</Link> : ''
                 }  
                 {
-                    user ?  <Link className='text-teal-600 block ' to='/Addservice'>Add service</Link>  : ""
+                    user ?  <Link className='text-teal-600 block ' to='/addservice'>Add service</Link>  : ""
                 }
                 <Link className='text-teal-600 block ' to='/portfolio'>Portfolio</Link>
                 <Link className='text-teal-600 block ' to='/blogs'>Blogs</Link>
@@ -55,7 +55,7 @@ const Header = () => {
                     user ? "" : <Link className='text-teal-600 block ' to='/Register'>Register</Link>
                 }
                 {
-                    user ? <button onClick={Logout} className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='text-teal-600 block ' to='/login'>Login</Link>
+                    user ? <button onClick={Logout} className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='bg-teal-500 block px-4 py-1 rounded text-white ' to='/login'>Login</Link>
                 }
 
             </ul>

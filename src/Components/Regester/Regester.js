@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import GoogleIcon from '@mui/icons-material/Google';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { Link, useNavigate } from 'react-router-dom';
 import Person3Icon from '@mui/icons-material/Person3';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -40,7 +39,7 @@ const Register = () => {
     }
 
     if (loading || gloading) {
-        return <Loading></Loading>
+        return <Loading></Loading> 
     }
 
    
