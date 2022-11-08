@@ -39,12 +39,15 @@ const OurServices = () => {
                                 </span>
                             </p>
                             <p className='mt-3 font-sm font-bold'>{service?.description.slice(0,100)+'.......'}</p>
+                            <div className='text-end mt-5'>
+                                <Link to={`/details/${service._id}`} className='px-5 py-1 rounded-sm uppercase text-white font-bold bg-head border-0 mt-5 w-2/4 ml-auto'>Details</Link>
+                            </div>
                         </div>
                     ))
                 }
             </div>
-            <div className='flex justify-center mt-5'>
-            <Link to='/services' className='btn bg-head border-0 mt-5'>See All services</Link>
+            <div className='flex justify-end mt-5 lg:px-20 p-5 '>
+            <Link to='/services' className='px-5 py-1 text-white font-bold rounded-sm bg-head border-0 mt-5'>See All services</Link>
             </div>
         </div>
     );

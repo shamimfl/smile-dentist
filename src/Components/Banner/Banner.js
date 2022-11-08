@@ -9,7 +9,7 @@ const Banner = () => {
                     <h1>Your New Smile
                         <br />    Starts Here</h1>
                     <p className='text-sm w-3/4 mt-5'>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn mt-5">Get start </button>
+                    <button className="btn bg-head border-0 mt-5">Get start </button>
                 </div>
                 <img className='md:2/4 md:h-[30rem] md: rounded-md mt-5' src="https://www.esplanademedicalcentre.com.au/wp-content/uploads/2021/04/ban01_2.png" alt="" />
             </div>
