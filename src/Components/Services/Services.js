@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const Services = () => {
 
@@ -27,7 +28,11 @@ const Services = () => {
                 {
                     services?.map(service => (
                         <div className='p-5 shadow-md rounded bg-base-200' key={service._id}>
-                            <img className='h-60 w-full rounded overflow-hidden' src={service?.img} alt="" />
+                            <PhotoProvider>
+                                <PhotoView  src={service?.img}>
+                                <img className='h-60 w-full rounded overflow-hidden' src={service?.img} alt="" />
+                                </PhotoView>
+                            </PhotoProvider>
                             <p className=' font-bold  text-teal-500 mt-4 uppercase'>{service?.name}</p>
                             <p className='text-3xl mt-2'>${service?.price}</p>
                             <p className='font-bold text-orange-500  flex items-center gap-5'>

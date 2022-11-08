@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Services from './Components/Services/Services';
 import Details from './Components/Details/Details';
+import 'react-photo-view/dist/react-photo-view.css';
 
 function App() {
   return (

@@ -2,12 +2,9 @@
     transform: scale(4);
 }
 
-
 .icon-bg{
-    /* background-color: aqua; */
     background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(15, 219, 192));
 }
-
 
 .bg-head{
     background-image: linear-gradient(90deg,rgb(0, 199, 76), rgb(0, 187, 255)
