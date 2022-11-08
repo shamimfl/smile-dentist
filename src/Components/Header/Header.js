@@ -42,17 +42,17 @@ const Header = () => {
                 {
                     user ? <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" /> : ''
                 }
-                <Link className='text-teal-600 block ' to='/services'>Services</Link>
+                <Link className='text-teal-600 block uppercase' to='/services'>Services</Link>
                 {
-                    user ? <Link className='text-teal-600 block ' to='/review'>My Review</Link> : ''
+                    user ? <Link className='text-teal-600 block uppercase' to='/review'>My Review</Link> : ''
                 }  
                 {
-                    user ?  <Link className='text-teal-600 block ' to='/addservice'>Add service</Link>  : ""
+                    user ?  <Link className='text-teal-600 block uppercase' to='/addservice'>Add service</Link>  : ""
                 }
-                <Link className='text-teal-600 block ' to='/portfolio'>Portfolio</Link>
-                <Link className='text-teal-600 block ' to='/blogs'>Blogs</Link>
+                <Link className='text-teal-600 block uppercase' to='/portfolio'>Portfolio</Link>
+                <Link className='text-teal-600 block uppercase' to='/blogs'>Blogs</Link>
                 {
-                    user ? "" : <Link className='text-teal-600 block ' to='/Register'>Register</Link>
+                    user ? "" : <Link className='text-teal-600 block uppercase' to='/Register'>Register</Link>
                 }
                 {
                     user ? <button onClick={Logout} className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='bg-teal-500 block px-4 py-1 rounded text-white ' to='/login'>Login</Link>
