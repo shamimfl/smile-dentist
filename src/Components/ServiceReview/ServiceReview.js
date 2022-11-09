@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
 import StarIcon from '@mui/icons-material/Star';
+import { useRadioGroup } from '@mui/material';
+import { Link } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const ServiceReview = ({_id , name}) => {
 
@@ -41,6 +44,9 @@ const ServiceReview = ({_id , name}) => {
         .then(data=> setReviews(data))
     },[name])
 
+    if(loading){
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -73,7 +79,9 @@ const ServiceReview = ({_id , name}) => {
                 }
             </div>
 
-            <label htmlFor="my-modal" className="btn mt-10 bg-head border-0">Add review</label>
+            {
+                user? <label htmlFor="my-modal" className="btn mt-10 bg-head border-0">Add review</label> : <Link to='/login' className='text-red-500 text-sm font-medium mt-5'>LogIn first To add Review</Link>
+            }
             <input type="checkbox" id="my-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
