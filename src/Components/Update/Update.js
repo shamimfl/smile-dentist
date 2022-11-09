@@ -19,8 +19,6 @@ const Update = () => {
     }
 
 
-    
-
     return (
         <div className="card flex justify-center  ">
             <form onSubmit={handleUpdate} className="w-2/4 shadow-2xl bg-base-100 p-5 mx-auto mt-10">

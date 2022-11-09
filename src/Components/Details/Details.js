@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
+import ServiceReview from '../ServiceReview/ServiceReview';
 
 
 const Details = () => {
@@ -39,6 +40,76 @@ const Details = () => {
                         <Link to='/services' className='btn  bg-head mt-5 border-0'>More Services</Link>
                     </div>
                 </div>
+            </div>
+            <div className='mt-20 w-full bg-base-200 p-5'>
+                <h1 className='text-xl'>Ratings & Reviews of{details.name}</h1>
+                <div className='lg:flex gap-28 items-center'>
+                    <div className=''>
+                        <h1 className='text-3xl font-bold mt-5'>{details.ratings} <span className='text-xl text-slate-400'>/5.0</span></h1>
+                        <span className='text-orange-500 mt-5 block'>
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                        </span>
+                    </div>
+                    <div className='mt-5'>
+
+
+                        <div className='flex items-center gap-5 '>
+                            <span className='text-orange-500  block'>
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon  />
+                            </span>
+                            <div className='h-3 md:w-60 w-40 bg-orange-400'></div>
+                        </div>
+                        <div className='flex items-center gap-5'>
+                            <span className='text-orange-500  block'>
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon  className='text-slate-400'/>
+                            </span>
+                            <div className='h-3 md:w-60 w-40 bg-orange-400'></div>
+                        </div>
+                        <div className='flex items-center gap-5'>
+                            <span className='text-orange-500  block'>
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon className='text-slate-400' />
+                                <StarIcon className='text-slate-400' />
+                            </span>
+                            <div className='h-3 md:w-60 w-40 bg-orange-400'></div>
+                        </div>
+                        <div className='flex items-center gap-5'>
+                            <span className='text-orange-500  block'>
+                                <StarIcon />
+                                <StarIcon />
+                                <StarIcon className='text-slate-400'/>
+                                <StarIcon className='text-slate-400'/>
+                                <StarIcon className='text-slate-400'/>
+                            </span>
+                            <div className='h-3 md:w-60 w-40 bg-orange-400'></div>
+                        </div>
+                        <div className='flex items-center gap-5'>
+                            <span className='text-orange-500  block'>
+                                <StarIcon />
+                                <StarIcon className='text-slate-400'/>
+                                <StarIcon className='text-slate-400'/>
+                                <StarIcon className='text-slate-400'/>
+                                <StarIcon className='text-slate-400'/>
+                            </span>
+                            <div className='h-3 md:w-60 w-40 bg-orange-400'></div>
+                        </div>
+                    </div>
+                </div>
+                <ServiceReview _id={details._id}  name={details.name} ></ServiceReview>
             </div>
         </div>
     );

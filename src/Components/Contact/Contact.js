@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <div className=' bg-contact'>
             <div className='h-full w-full bg-simple py-3'>
-                <div className='w-2/4 mx-auto mt-3 block p-5 rounded '>
+                <div className='md:w-2/4 mx-auto mt-3 block p-5 rounded '>
                     <h1 className='text-3xl mt-10 font-bold  text-white  text-center '>Contact</h1>
                     <h1 className='font-bold text-white  text-center '>Stay connected with us</h1>
                     <input type="text" placeholder='Enter Your Name' className='w-full text-white font-bold placeholder:text-white placeholder:font-bold  mt-5 p-2 bg-simple shadow focus:outline-none rounded shadow-black'  />
