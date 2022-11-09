@@ -11,6 +11,7 @@ import Services from './Components/Services/Services';
 import Details from './Components/Details/Details';
 import 'react-photo-view/dist/react-photo-view.css';
 import Update from './Components/Update/Update';
+import MyReview from './Components/MyReview/MyReview';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/services' element={<Services></Services>}></Route>
             <Route path='/details/:_id' element={<Details></Details>}></Route>
             <Route path='/update' element={<Update></Update>}></Route>
+            <Route path='/myReview' element={<MyReview></MyReview>}></Route>
             <Route path='*' element={<img className='md:h-[90vh] md:w-3/5 mx-auto' src='https://cdn.dribbble.com/users/1408464/screenshots/6377404/404_illustration_4x.png'   />}></Route>
       </Routes>
       <ToastContainer/>

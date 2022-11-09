@@ -1,14 +1,14 @@
 import React from 'react';
 import './Info.css'
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import EditLocationIcon from '@mui/icons-material/EditLocation';
-import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import AddIcCallIcon from '@mui/icons-material/Call';
 
 const Info = () => {
     return (
         <div className='p-5 md:grid grid-cols-3 gap-5 '>
             <div className='bg-head p-5 rounded mt-3 flex gap-5'>
-                <AccessTimeIcon className='icon text-white mt-5 ml-5' />
+                <CalendarTodayIcon className='icon text-white mt-5 ml-5' />
                 <span className='ml-5'>
                     <h1 className='text-3xl text-white'>Opening Hour</h1>
                     <h1 className='mt-2 text-white'>09:00 AM To 05:00 PM</h1>
