@@ -5,6 +5,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { useRadioGroup } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import { toast } from 'react-toastify';
 
 const ServiceReview = ({_id , name}) => {
 
@@ -32,7 +33,13 @@ const ServiceReview = ({_id , name}) => {
             body: JSON.stringify(review)
         })
         .then(res=> res.json())
-        .then(data=> console.log(data))
+        .then(data=> {
+            console.log(data)
+            if(data.acknowledged){
+                toast.success('Review Added successFully')
+            }
+        })
+        e.target.reset()
     }
 
 
@@ -42,7 +49,7 @@ const ServiceReview = ({_id , name}) => {
         fetch(url)
         .then(res=>res.json())
         .then(data=> setReviews(data))
-    },[name])
+    },[name, submitReview])
 
     if(loading){
         return <Loading></Loading>
@@ -94,7 +101,7 @@ const ServiceReview = ({_id , name}) => {
                                 <textarea   type="text" placeholder="Message" name='message' className="input h-24 input-bordered" />
                             </div>
                             <div className="form-control mt-5">
-                                <button className="btn bg-head border-0">Submit</button>
+                                <button htmlFor="my-modal" className="btn bg-head border-0">Submit</button>
                             </div>
                         </form>
                     </div>

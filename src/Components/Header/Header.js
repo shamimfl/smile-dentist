@@ -49,7 +49,7 @@ const Header = () => {
                 {
                     user ?  <Link className='text-teal-600 block uppercase' to='/addservice'>Add service</Link>  : ""
                 }
-                <Link className='text-teal-600 block uppercase' to='/portfolio'>Portfolio</Link>
+                
                 <Link className='text-teal-600 block uppercase' to='/blogs'>Blogs</Link>
                 {
                     user ? "" : <Link className='text-teal-600 block uppercase' to='/Register'>Register</Link>
