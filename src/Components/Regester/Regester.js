@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import GoogleIcon from '@mui/icons-material/Google';
-import { Link, useNavigate } from 'react-router-dom';
-import Person3Icon from '@mui/icons-material/Person3';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase.init';
 import Loading from '../Loading/Loading';
@@ -13,8 +12,11 @@ import Loading from '../Loading/Loading';
 const Register = () => {
 
 
-    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location?.state?.from?.pathname || '/'
+
     const [
         createUserWithEmailAndPassword,
         user,
@@ -38,15 +40,50 @@ const Register = () => {
         document.title = `Register - Dentist`
     }, [])
 
-    if (user || guser) {
+
+
+    if (loading || gLoading) {
+        return <Loading></Loading>
+    }
+
+    if (gUser) {
+        const currentUser = { email: gUser.user.email };
+        fetch('http://localhost:5000/jwt', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('dentist-token', data.token)
+                navigate(from, { replace: true })
+            })
+
+    }
+    if (user) {
+        const currentUser = { email: user.user.email };
+        fetch('http://localhost:5000/jwt', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(currentUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('dentist-token', data.token)
+            })
         navigate('/update')
     }
 
-    if (loading || gloading) {
-        return <Loading></Loading> 
-    }
 
-   
+
+
+
     return (
         <div className='p-5'>
             <div className='lg:w-2/5 rounded-md mx-auto  mt-5 bg-cus-login p-5 text-center shadow relative'>
@@ -89,8 +126,8 @@ const Register = () => {
                 {/* error  */}
 
                 <div className='absolute top-2 bg-white rounded shadow flex items-center px-5 text-red-500 gap-5'>
-                   {error? error.message : ''}
-                   {gerror? gerror.message : ''}
+                    {error ? error.message : ''}
+                    {gError ? gError.message : ''}
                 </div>
             </div>
 

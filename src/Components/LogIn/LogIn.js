@@ -3,8 +3,7 @@ import './LogIn.css'
 import EmailIcon from '@mui/icons-material/Email';
 import KeyIcon from '@mui/icons-material/Key';
 import GoogleIcon from '@mui/icons-material/Google';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import { useSignInWithGoogle, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
@@ -13,7 +12,7 @@ import Loading from '../Loading/Loading';
 
 const LogIn = () => {
 
-    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
         user,
@@ -34,8 +33,9 @@ const LogIn = () => {
         document.title = `Login - Dentist`
     }, [])
 
+    const location = useLocation()
     const navigate = useNavigate()
-
+    const from = location?.state?.from?.pathname || '/'
 
     const handleSingInWithGoogle = () => {
         signInWithGoogle()
@@ -43,14 +43,13 @@ const LogIn = () => {
 
    
 
-    if (gloading || loading) {
+    if (gLoading || loading) {
         return <Loading></Loading>
     }
     
 
     if(user){
             const currentUser = {email: user.user.email};
-
             fetch('http://localhost:5000/jwt', {
                 method: 'POST',
                 headers: {
@@ -62,9 +61,24 @@ const LogIn = () => {
             .then(data=> {
                 console.log(data)
                 localStorage.setItem('dentist-token', data.token)
+                navigate(from, { replace: true })
             })
-
-            console.log(currentUser)
+    }
+    if(gUser){
+            const currentUser = {email: gUser?.user?.email};
+            fetch('http://localhost:5000/jwt', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res=> res.json())
+            .then(data=> {
+                console.log(data)
+                localStorage.setItem('dentist-token', data.token)
+                navigate(from, { replace: true })
+            })
     }
 
 
@@ -109,7 +123,7 @@ const LogIn = () => {
                 {/* error  */}
                 <div className='absolute top-2 bg-white rounded shadow flex items-center px-5 text-red-500 gap-5'>
                     {error ? error.message : ''}
-                    {gerror ? gerror.message : ''}
+                    {gError ? gError.message : ''}
                 </div>
             </div>
 

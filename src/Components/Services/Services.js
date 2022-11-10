@@ -2,20 +2,23 @@ import React, { useEffect, useState } from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { useQuery } from 'react-query';
+import Loading from '../Loading/Loading';
 
 const Services = () => {
-
-    const [services, setService] = useState();
-
-    useEffect(() => {
-        fetch('http://localhost:5000/allservice')
-            .then(res => res.json())
-            .then(data => setService(data))
-    }, [])
-
+    
+    const { isLoading, error, data } = useQuery('repoData', () =>
+        fetch('http://localhost:5000/allservice').then(res =>
+            res.json()
+        )
+    )
     useEffect(() => {
         document.title = `Services-Dentist`
-      }, [])
+    }, [])
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <div className=''>
@@ -28,11 +31,11 @@ const Services = () => {
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-10 lg:px-20'>
                 {
-                    services?.map(service => (
+                    data?.map(service => (
                         <div className='p-5 shadow-md rounded bg-base-200' key={service._id}>
                             <PhotoProvider>
-                                <PhotoView  src={service?.img}>
-                                <img className='h-60 w-full rounded overflow-hidden' src={service?.img} alt="" />
+                                <PhotoView src={service?.img}>
+                                    <img className='h-60 w-full rounded overflow-hidden' src={service?.img} alt="" />
                                 </PhotoView>
                             </PhotoProvider>
                             <p className=' font-bold  text-teal-500 mt-4 uppercase'>{service?.name}</p>

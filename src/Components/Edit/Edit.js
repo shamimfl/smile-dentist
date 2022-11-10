@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import {  useNavigate, useParams } from 'react-router-dom';
+import {  useLocation, useNavigate, useParams } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 import { toast } from 'react-toastify';
 
 const Edit = () => {
     const [review, setReview] = useState([])
     const { _id } = useParams()
+    const location = useLocation()
     const navigate = useNavigate()
+    const from = location?.state?.from?.pathname || '/'
 
 
     useEffect(() => {
@@ -38,7 +40,7 @@ const Edit = () => {
             if(data.acknowledged){
                 toast.success('update Successfully')
                 e.target.reset()
-                navigate('/myReview')
+                navigate(from, { replace: true })
             }
         } 
         )

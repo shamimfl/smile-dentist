@@ -4,11 +4,13 @@ import auth from '../../Firebase.init';
 import Loading from '../Loading/Loading';
 import StarIcon from '@mui/icons-material/Star';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyReview = () => {
 
     const [user, loading, error] = useAuthState(auth)
     const [reviews, setReview] = useState([])
+
 
     const navigate = useNavigate()
 
@@ -18,7 +20,9 @@ const MyReview = () => {
             method: 'DELETE'
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                toast.success('Delete successfully')
+            })
     }
 
     useEffect(() => {
@@ -40,15 +44,11 @@ const MyReview = () => {
             .then(data => {
                 setReview(data);
             })
-    }, [user?.email])
+    }, [user?.email, handleDelete])
 
     if (loading) {
         return <Loading></Loading>
     }
-
-    // const handleEdit=()=>{
-
-    // }
 
 
 
@@ -56,15 +56,19 @@ const MyReview = () => {
     return (
         <div className='p-5 md:px-20 '>
             <h1 className='text-xl text-center font-bold mt-10'>Total Review : {reviews.length}</h1>
+            
             <div className='flex justify-center items-center mt-2 mb-5'>
                 <div className='h-2 w-20 rounded-xl bg-teal-500 z-20 mr-[-10px]'></div>
                 <div className='h-4 w-20 rounded-xl bg-head '></div>
                 <div className='h-2 w-20 rounded-xl bg-teal-500 ml-[-10px]'></div>
             </div >
+            <h1 className='text-center mt-20 font-bold text-red-500'>{reviews[0]?.userImg ?  '' : 'No data Found'}</h1>
+            
             {
-                reviews?.map(data => (
+            
+        reviews?.map(data => (
                     <div className='mt-10 p-3 bg-base-200 rounded '>
-
+                        
                         <div className='rounded flex items-center gap-5'>
                             <img className='h-16 w-16 rounded-full border-2' src={data.userImg} alt="" />
                             <div>
@@ -91,7 +95,8 @@ const MyReview = () => {
                             </ul>
                         </div>
                     </div>
-                ))
+                )) 
+                 
 
             }
         </div>
