@@ -12,7 +12,6 @@
 - React - toast
 - Firebase
 - React-firebase-hooks
-- daisy UI
 - Material Icon
 - img(from freePic)
 
