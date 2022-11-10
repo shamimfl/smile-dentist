@@ -12,7 +12,7 @@ const Edit = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/edit/${_id}`, {
+        fetch(`https://sarver.vercel.app/edit/${_id}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('dentist-token')}`
             }
@@ -27,7 +27,7 @@ const Edit = () => {
         const message = e.target.message.value;
         const ratings = e.target.ratings.value;
 
-        fetch(`http://localhost:5000/edit/${_id}`,{
+        fetch(`https://sarver.vercel.app/edit/${_id}`,{
             method: "PUT",
             headers: {
                 'content-type' : 'application/json'

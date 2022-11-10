@@ -50,7 +50,7 @@ const LogIn = () => {
 
     if(user){
             const currentUser = {email: user.user.email};
-            fetch('http://localhost:5000/jwt', {
+            fetch('https://sarver.vercel.app/jwt', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -66,7 +66,7 @@ const LogIn = () => {
     }
     if(gUser){
             const currentUser = {email: gUser?.user?.email};
-            fetch('http://localhost:5000/jwt', {
+            fetch('https://sarver.vercel.app/jwt', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

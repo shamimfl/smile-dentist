@@ -17,7 +17,7 @@ const Addservice = () => {
         const description = form.description.value
         const service = {name , img, price, ratings, description, fullDate, fullTime}
         console.log(service)
-        fetch('http://localhost:5000/addService',{
+        fetch('https://sarver.vercel.app/addService',{
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -29,7 +29,7 @@ const ServiceReview = ({ _id, name }) => {
         const review = { userName, userImg, email, servceId, message, ratings, serviceName, fullTime, fullDate }
         console.log(review)
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://sarver.vercel.app/review', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const ServiceReview = ({ _id, name }) => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/review?serviceName=${name}`
+        const url = `https://sarver.vercel.app/review?serviceName=${name}`
         fetch(url)
             .then(res => res.json())
             .then(data => setReviews(data))

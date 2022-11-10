@@ -18,7 +18,7 @@ const MyReview = () => {
 
     const handleDelete = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://sarver.vercel.app/review/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -32,7 +32,7 @@ const MyReview = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`, {
+        fetch(`https://sarver.vercel.app/myReview?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('dentist-token')}`
             }

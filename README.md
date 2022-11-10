@@ -1,7 +1,8 @@
 # Dentist 
 
-### Live Link:
-### server Link:
+### Live Link: https://dentist-ass11.web.app/
+### server Link: https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-shamimfl
+### client Link : https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-shamimfl
 
 #### Technology Use :
 - HTMl 

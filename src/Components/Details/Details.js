@@ -10,10 +10,10 @@ const Details = () => {
     const { _id } = useParams()
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${_id}`)
+        fetch(`https://sarver.vercel.app/service/${_id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
-        console.log(`http://localhost:5000/service/${_id}`)
+        console.log(`https://sarver.vercel.app/service/${_id}`)
     }, [])
 
     return (

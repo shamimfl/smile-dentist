@@ -8,7 +8,7 @@ const OurServices = () => {
     const [services, setService] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://sarver.vercel.app/service')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

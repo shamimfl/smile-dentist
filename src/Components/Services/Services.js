@@ -6,9 +6,9 @@ import { useQuery } from 'react-query';
 import Loading from '../Loading/Loading';
 
 const Services = () => {
-    
+
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('http://localhost:5000/allservice').then(res =>
+        fetch('https://sarver.vercel.app/allservice').then(res =>
             res.json()
         )
     )
