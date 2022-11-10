@@ -41,29 +41,29 @@ const Addservice = () => {
     return (
         <div className="hero h-[80vh] bg-base-200">
             <div className="hero-content">
-                <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleAddService} className="card-body">
+                <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100 mx-auto">
+                    <form onSubmit={handleAddService} className="card-body p-5">
                         <div className="form-control">
-                            <input name='name' type="text" placeholder="Service Name" className="input input-bordered" />
+                            <input name='name' type="text" placeholder="Service Name" className="bg-slate-200 rounded w-full mt-5 p-2" />
                         </div>
 
                         <div className="form-control">
-                            <input name='img' type="text" placeholder="Img URL" className="input input-bordered" />
+                            <input name='img' type="text" placeholder="Img URL" className="bg-slate-200 rounded w-full mt-5 p-2" />
                         </div>
 
                         <div className="form-control">
-                            <input name='price' type="number" placeholder="Price" className="input input-bordered" />
+                            <input name='price' type="number" placeholder="Price" className="bg-slate-200 rounded w-full mt-5 p-2" />
                         </div>
 
                         <div className="form-control">
-                            <input name='ratings' type="number" placeholder="Ratings" className="input input-bordered" />
+                            <input name='ratings' type="number" placeholder="Ratings" className="bg-slate-200 rounded w-full mt-5 p-2" />
                         </div>
                         <div  className="form-control">
-                            <textarea name='description' type="Text" placeholder="Description" className="input h-16 input-bordered" />
+                            <textarea name='description' type="Text" placeholder="Description" className="input h-16 input-bordered bg-slate-200 rounded w-full mt-5 p-2" />
                         </div>
 
                         <div className="form-control mt-6">
-                            <button type='submit' className="btn btn-primary">Submit</button>
+                            <button type='submit' className="bg-head btn">Submit</button>
                         </div>
                     </form>
                 </div>

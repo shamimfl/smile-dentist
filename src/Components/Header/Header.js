@@ -55,7 +55,7 @@ const Header = () => {
                     user ? "" : <Link className='text-teal-600 block uppercase' to='/Register'>Register</Link>
                 }
                 {
-                    user ? <button onClick={Logout} className=' py-2 px-4 btn-warning rounded btn' to='/logout'>Logout</button> : <Link className='bg-teal-500 block px-4 py-1 rounded text-white ' to='/login'>Login</Link>
+                    user ? <button onClick={Logout} className=' py-2 px-4 bg-red-400 rounded-sm btn' to='/logout'>Logout</button> : <Link className='bg-teal-500 block px-4 py-1 rounded text-white ' to='/login'>Login</Link>
                 }
 
             </ul>

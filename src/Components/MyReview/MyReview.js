@@ -11,6 +11,8 @@ const MyReview = () => {
     const [user, loading, error] = useAuthState(auth)
     const [reviews, setReview] = useState([])
 
+    const [remove , setRemove] = useState('hidden')
+
 
     const navigate = useNavigate()
 
@@ -67,8 +69,11 @@ const MyReview = () => {
             {
             
         reviews?.map(data => (
-                    <div className='mt-10 p-3 bg-base-200 rounded '>
-                        
+                    <div className='mt-10 p-3 bg-base-200 rounded bg-slate-200'>
+                        <div className={`${remove} bg-white  w-96 p-5`}>
+                        <button onClick={() => handleDelete(data?._id)} className='px-5 py-1 ml-5 font-bold bg-red-400 uppercase text-white rounded-sm border-0 '>confrim</button>
+                        <button onClick={()=> setRemove('hidden')} className='px-5 py-1 ml-5 font-bold bg-red-400 uppercase text-white rounded-sm border-0 '>cancel</button>
+                        </div>
                         <div className='rounded flex items-center gap-5'>
                             <img className='h-16 w-16 rounded-full border-2' src={data.userImg} alt="" />
                             <div>
@@ -87,13 +92,8 @@ const MyReview = () => {
                             </div>
                         </div>
                         <p className='text-sm mt-5 mb-5 block'>{data.message}</p>
-                        <Link to={`/edit/${data._id}`} className='px-5 py-1 bg-success font-bold uppercase text-white rounded-sm border-0  mt-5'>Edit</Link>
-                        <div className="dropdown dropdown-top ">
-                            <label tabIndex={0} className='px-5 py-1 bg-warning font-bold uppercase text-white rounded-sm border-0 ml-5 mt-5'>Delete</label>
-                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ">
-                                <button onClick={() => handleDelete(data?._id)} className='px-5 py-1 bg-warning font-bold uppercase text-white rounded-sm border-0 '>Confirm</button>
-                            </ul>
-                        </div>
+                        <Link to={`/edit/${data._id}`} className='px-5 py-1 bg-head font-bold uppercase text-white rounded-sm border-0  mt-5'>Edit</Link>
+                        <button onClick={()=> setRemove('block')} className='px-5 py-1 ml-5 font-bold bg-red-400 uppercase text-white rounded-sm border-0 '>Delete</button>
                     </div>
                 )) 
                  
