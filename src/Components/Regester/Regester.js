@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 import EmailIcon from '@mui/icons-material/Email';
@@ -33,6 +33,10 @@ const Register = () => {
         const password = form.password.value;
         createUserWithEmailAndPassword(email, password)
     }
+
+    useEffect(() => {
+        document.title = `Register - Dentist`
+    }, [])
 
     if (user || guser) {
         navigate('/update')

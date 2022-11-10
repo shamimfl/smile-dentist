@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 const Addservice = () => {
@@ -6,13 +6,16 @@ const Addservice = () => {
 
     const handleAddService=(e)=>{
         e.preventDefault()
+        const time = new Date()
+        const fullDate = time.toLocaleTimeString()
+        const fullTime = time.toLocaleDateString()
         const form = e.target;
         const name = form.name.value
         const img = form.img.value
         const price = form.price.value
         const ratings = form.ratings.value
         const description = form.description.value
-        const service = {name , img, price, ratings, description}
+        const service = {name , img, price, ratings, description, fullDate, fullTime}
         console.log(service)
         fetch('http://localhost:5000/addService',{
             method: "POST",
@@ -30,6 +33,10 @@ const Addservice = () => {
             }
         })
     }
+
+    useEffect(() => {
+        document.title = `Add service-Dentist`
+    }, [])
 
     return (
         <div className="hero h-[80vh] bg-base-200">

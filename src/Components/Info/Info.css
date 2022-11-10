@@ -10,3 +10,7 @@
     background-image: linear-gradient(90deg,rgb(0, 199, 76), rgb(0, 187, 255)
     );
 }
+
+.input-bg{
+    background-color: rgba(2, 1, 1, 0.226);
+}

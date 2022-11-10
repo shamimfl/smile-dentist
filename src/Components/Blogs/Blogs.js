@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Blogs = () => {
+    useEffect(() => {
+        document.title = `Blogs  - Dentist`
+    }, [])
     return (
         <div className='p-5'>
             <div tabIndex={0} className="collapse collapse-plus border border-base-300 lg:w-2/4 w-full bg-base-100 rounded-box mx-auto">

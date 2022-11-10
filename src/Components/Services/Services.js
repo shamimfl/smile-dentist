@@ -13,7 +13,9 @@ const Services = () => {
             .then(data => setService(data))
     }, [])
 
-
+    useEffect(() => {
+        document.title = `Services-Dentist`
+      }, [])
 
     return (
         <div className=''>
